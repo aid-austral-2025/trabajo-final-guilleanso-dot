@@ -23,8 +23,7 @@ agencia <- agencia_raw |>
   mutate(across(where(is.character), str_squish))
 
 # 4) Armo una fecha de referencia (fecha_ref)
-#    - uso la primera que esté disponible (salida, alta o regreso)
-#    - convierto primero con ymd; si falla, pruebo con dmy
+
 agencia_base <- agencia |>
   mutate(
     fecha_ref_raw = coalesce(fecha_salida, fecha_alta, fecha_regreso),
